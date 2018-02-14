@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package cosmos.protobuf;
+
+option csharp_namespace = "Telegram.Bot.Cosmos.Protobuf";
+
+message Person {
+
+	enum PersonType {
+		CITIZEN = 0;
+		HERO = 1;
+		WIZARD = 2;
+		MONSTER = 3;
+		NECROMANT = 4;
+		DRAGON = 5;
+		GROUP = 6;
+	}
+
+	enum Direction
+	{
+		DOWN = 0;
+		UP = 1;
+		RIGHT = 2;
+		LEFT = 3;
+	}
+
+	message Point
+	{
+		int32 x = 1;
+		int32 y = 2;
+	}
+
+	bytes Id = 1;
+	PersonType type = 2;
+	bool inGroup = 3;
+	bool deleted = 4;
+	Point point = 5;
+	Direction direction = 6;
+}
+
+message Persons {
+	repeated Person person = 1;
+}
